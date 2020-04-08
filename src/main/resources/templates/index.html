@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4">
+
+                <form action="">
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fone">Fone</label>
+                        <input type="text" name="fone" id="fone" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary">SALVAR</button>
+                        <button type="reset" class="btn btn-danger">LIMPAR</button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="col-8">
+
+                <table class="table table-striped table-hover">
+
+                    <thead>
+
+                        <th>#</th>
+                        <th>nome</th>
+                        <th>fone</th>
+                        <th>ações</th>
+
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
