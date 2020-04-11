@@ -19,7 +19,7 @@ public class Contato {
     private String fone;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -27,7 +27,7 @@ public class Contato {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -35,7 +35,7 @@ public class Contato {
     }
 
     public String getFone() {
-        return fone;
+        return this.fone;
     }
 
     public void setFone(String fone) {
@@ -47,14 +47,14 @@ public class Contato {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return Objects.equals(id, contato.id) &&
-                Objects.equals(nome, contato.nome) &&
-                Objects.equals(fone, contato.fone);
+        return Objects.equals(this.id, contato.id) &&
+                Objects.equals(this.nome, contato.nome) &&
+                Objects.equals(this.fone, contato.fone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, fone);
+        return Objects.hash(this.id, this.nome, this.fone);
     }
 
 }
