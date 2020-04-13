@@ -5,6 +5,8 @@ import br.senai.br.ti.agenda.repository.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContatoService {
 
@@ -18,4 +20,11 @@ public class ContatoService {
         return repository.save(contato);
     }
 
+    public Contato save(Contato contato) {
+        return repository.save(contato);
+    }
+
+    public List<Contato> findAll() {
+        return repository.findAll();
+    }
 }

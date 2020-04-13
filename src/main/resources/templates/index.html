@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Agenda</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/fontawesome/css/all.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
+
 </head>
 <body>
 
@@ -12,26 +14,23 @@
         <div class="row">
             <div class="col-4">
 
-                <form action="">
+                <form method="post" th:object="${contato}" th:action="@{/agenda}">
 
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control">
+                        <input type="text" th:field="*{nome}" name="nome" id="nome" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="fone">Fone</label>
-                        <input type="text" name="fone" id="fone" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="text" name="email" id="email" class="form-control">
+                        <input type="text" th:field="*{fone}" name="fone" id="fone" class="form-control">
                     </div>
 
                     <div class="form-group">
 
-                        <button type="submit" class="btn btn-primary">SALVAR</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>Salvar
+                        </button>
                         <button type="reset" class="btn btn-danger">LIMPAR</button>
 
                     </div>
@@ -46,14 +45,42 @@
 
                     <thead>
 
-                        <th>#</th>
-                        <th>nome</th>
-                        <th>fone</th>
-                        <th>ações</th>
+                        <tr>
+
+                            <th>#</th>
+                            <th>nome</th>
+                            <th>fone</th>
+                            <th>ações</th>
+
+                        </tr>
+
 
                     </thead>
 
-                    <tbody></tbody>
+                    <tbody>
+
+                        <tr th:each="contato : ${contatos}">
+
+                            <td th:text="${contato.id}">id</td>
+                            <td th:text="${contato.nome}">nome</td>
+                            <td th:text="${contato.fone}">fone</td>
+                            <td>
+
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i>editar
+                                </button>
+
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-save"></i>remover
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                    </tbody>
 
                 </table>
 

@@ -1,6 +1,11 @@
 package br.senai.br.ti.agenda.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
@@ -57,4 +62,12 @@ public class Contato {
         return Objects.hash(this.id, this.nome, this.fone);
     }
 
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", fone='" + fone + '\'' +
+                '}';
+    }
 }
