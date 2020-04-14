@@ -22,14 +22,14 @@ public class ContatoController {
         List<Contato> contatos = service.findAll();
         model.addAttribute("contato", contato);
         model.addAttribute("contatos", contatos);
-        return "index";
+        return "contatos";
     }
 
     @PostMapping
     public String save(Contato contato) {
         service.save(contato);
         System.out.println(contato);
-        return "redirect:/agenda";
+        return "redirect:/";
     }
 
 }
