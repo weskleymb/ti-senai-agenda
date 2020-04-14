@@ -36,7 +36,7 @@ public class Contato {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.trim().toUpperCase();
     }
 
     public String getFone() {
@@ -44,7 +44,7 @@ public class Contato {
     }
 
     public void setFone(String fone) {
-        this.fone = fone;
+        this.fone = fone.trim();
     }
 
     @Override
