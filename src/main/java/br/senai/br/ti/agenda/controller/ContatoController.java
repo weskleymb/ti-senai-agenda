@@ -8,17 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("contatos")
 public class ContatoController {
 
     @Autowired
     private ContatoService service;
 
     private final String URL_INDEX = "contatos";
-    private final String REDIRECT_INDEX = "redirect:/";
+    private final String REDIRECT_INDEX = "redirect:/contatos";
 
     @GetMapping
     public String home(Model model) {
