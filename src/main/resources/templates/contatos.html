@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
     <link th:rel="stylesheet" th:href="@{bootstrap/css/bootstrap.css}">
     <link th:rel="stylesheet" th:href="@{fontawesome/css/all.css}">
@@ -16,26 +17,25 @@
     <div class="row">
         <div class="col-4">
 
-            <form method="post" th:object="${contato}">
+            <form method="post" th:action="@{/}" th:object="${contato}">
+
+                <input type="hidden" th:field="*{id}">
 
                 <div class="form-group">
-                    <label for="nome">Nome</label>
+                    <label>Nome</label>
                     <input type="text"
                            class="form-control"
                            maxlength="30"
                            th:field="*{nome}"
-                           name="nome"
-                           id="nome">
+                           name="nome">
                 </div>
 
                 <div class="form-group">
-                    <label for="fone">Fone</label>
+                    <label>Fone</label>
                     <input type="text"
                            class="form-control"
                            maxlength="15"
-                           th:field="*{fone}"
-                           name="fone"
-                           id="fone">
+                           th:field="*{fone}">
                 </div>
 
                 <div class="form-group">
@@ -90,12 +90,12 @@
                     <td th:text="${contato.nome}">nome</td>
                     <td th:text="${contato.fone}">fone</td>
                     <td>
-                        <a th:href="@{contatos/{id}/edita(id=${contato.id})}" class="btn btn-sm btn-primary">
+                        <a th:href="@{{id}/editar(id=${contato.id})}" class="btn btn-sm btn-primary">
                             <span>
                                 <i class="fas fa-pen"></i>
                             </span>
                         </a>
-                        <a th:href="@{contatos/{id}/remove(id=${contato.id})}" class="btn btn-sm btn-danger">
+                        <a th:href="@{{id}/remover(id=${contato.id})}" class="btn btn-sm btn-danger">
                             <span>
                                 <i class="fas fa-trash"></i>
                             </span>

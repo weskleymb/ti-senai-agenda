@@ -40,11 +40,39 @@ public class Contato {
     }
 
     public String getFone() {
+        if (fone != null) {
+            return formataFone(this.fone);
+        }
         return this.fone;
+//        return this.formataFone(this.fone);
     }
 
     public void setFone(String fone) {
-        this.fone = fone.trim();
+        this.fone = this.limparFone(fone);
+    }
+
+    private String limparFone(String fone) {
+        return fone.replace("(", "")
+                                .replace(")", "")
+                                .replace("-", "")
+                                .replace(" ", "")
+                                .trim();
+    }
+
+    private String formataFone(String fone) {
+        String foneFormatado = null;
+        if (fone.length() == 10) {
+            foneFormatado = "(" + fone.substring(0, 2) + ") " + fone.substring(2, 6) + "-" + fone.substring(6, 10);
+        } else if (fone.length() == 11){
+            foneFormatado = "(" + fone.substring(0, 2) + ") " + fone.substring(2, 7) + "-" + fone.substring(7, 11);
+        }
+        return foneFormatado;
+
+
+//        String CEP = "12345678";
+//        System.out.println(CEP.substring(0, 5) + "-" + CEP.substring(5));
+//        String TEL = "1234567890123";
+//        System.out.println("(" + TEL.substring(0, 2) + ")" + TEL.substring(2, 6) + "-" + TEL.substring(6, 10));
     }
 
     @Override
@@ -70,4 +98,5 @@ public class Contato {
                 ", fone='" + fone + '\'' +
                 '}';
     }
+
 }

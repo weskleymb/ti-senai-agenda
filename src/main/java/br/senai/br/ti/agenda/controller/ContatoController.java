@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -16,20 +17,37 @@ public class ContatoController {
     @Autowired
     private ContatoService service;
 
+    private final String URL_INDEX = "contatos";
+    private final String REDIRECT_INDEX = "redirect:/";
+
     @GetMapping
     public String home(Model model) {
         Contato contato = new Contato();
-        List<Contato> contatos = service.findAll();
         model.addAttribute("contato", contato);
+        List<Contato> contatos = service.findAll();
         model.addAttribute("contatos", contatos);
-        return "contatos";
+        return URL_INDEX;
+    }
+
+    @GetMapping("{id}/editar")
+    public String edita(@PathVariable("id") Long id, Model model) {
+        Contato contato = service.findById(id);
+        model.addAttribute("contato", contato);
+        List<Contato> contatos = service.findAll();
+        model.addAttribute("contatos", contatos);
+        return URL_INDEX;
+    }
+
+    @GetMapping("{id}/remover")
+    public String remove(@PathVariable("id") Long id) {
+        service.removeById(id);
+        return REDIRECT_INDEX;
     }
 
     @PostMapping
     public String save(Contato contato) {
         service.save(contato);
-        System.out.println(contato);
-        return "redirect:/";
+        return REDIRECT_INDEX;
     }
 
 }

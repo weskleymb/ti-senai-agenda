@@ -13,13 +13,6 @@ public class ContatoService {
     @Autowired
     private ContatoRepository repository;
 
-    public Contato salvar(Contato contato) {
-        if (contato.getNome().equals("")) {
-            throw new RuntimeException("Contato não pode ter nome em Branco");
-        }
-        return repository.save(contato);
-    }
-
     public Contato save(Contato contato) {
         return repository.save(contato);
     }
@@ -27,4 +20,13 @@ public class ContatoService {
     public List<Contato> findAll() {
         return repository.findAll();
     }
+
+    public Contato findById(Long id) {
+        return repository.findById(id).get();
+    }
+
+    public void removeById(Long id) {
+        repository.deleteById(id);
+    }
+
 }
