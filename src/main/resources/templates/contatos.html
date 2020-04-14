@@ -90,12 +90,12 @@
                     <td th:text="${contato.nome}">nome</td>
                     <td th:text="${contato.fone}">fone</td>
                     <td>
-                        <a th:href="@{{id}/editar(id=${contato.id})}" class="btn btn-sm btn-primary">
+                        <a th:href="@{contatos/{id}/editar(id=${contato.id})}" class="btn btn-sm btn-primary">
                             <span>
                                 <i class="fas fa-pen"></i>
                             </span>
                         </a>
-                        <a th:href="@{{id}/remover(id=${contato.id})}" class="btn btn-sm btn-danger">
+                        <a th:href="@{contatos/{id}/remover(id=${contato.id})}" class="btn btn-sm btn-danger">
                             <span>
                                 <i class="fas fa-trash"></i>
                             </span>
