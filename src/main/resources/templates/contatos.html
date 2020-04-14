@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
-    <link th:rel="stylesheet" th:href="@{bootstrap/css/bootstrap.css}">
-    <link th:rel="stylesheet" th:href="@{fontawesome/css/all.css}">
+    <link th:rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
+    <link th:rel="stylesheet" th:href="@{/fontawesome/css/all.css}">
 </head>
 <body>
 <div class="container">
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12 col-md-4">
 
-            <form method="post" th:action="@{contatos}" th:object="${contato}">
+            <form method="post" th:action="@{/contatos}" th:object="${contato}">
 
                 <input type="hidden" th:field="*{id}">
 
@@ -91,12 +91,12 @@
                     <td th:text="${contato.nome}">nome</td>
                     <td th:text="${contato.fone}">fone</td>
                     <td>
-                        <a th:href="@{contatos/{id}/editar(id=${contato.id})}" class="btn btn-sm btn-primary">
+                        <a th:href="@{/contatos/{id}/editar(id=${contato.id})}" class="btn btn-sm btn-primary">
                             <span>
                                 <i class="fas fa-pen"></i>
                             </span>
                         </a>
-                        <a th:href="@{contatos/{id}/remover(id=${contato.id})}" class="btn btn-sm btn-danger">
+                        <a th:href="@{/contatos/{id}/remover(id=${contato.id})}" class="btn btn-sm btn-danger">
                             <span>
                                 <i class="fas fa-trash"></i>
                             </span>
@@ -114,9 +114,9 @@
 
 </div>
 
-<script th:src="@{jquery/jquery.js}"></script>
-<script th:src="@{jquery/jquery.mask.js}"></script>
-<script th:src="@{js/javascript.js}"></script>
+<script th:src="@{/jquery/jquery.js}"></script>
+<script th:src="@{/jquery/jquery.mask.js}"></script>
+<script th:src="@{/js/javascript.js}"></script>
 
 </body>
 </html>

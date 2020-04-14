@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("contatos")
+@RequestMapping("/contatos")
 public class ContatoController {
 
     @Autowired
@@ -31,7 +31,7 @@ public class ContatoController {
         return URL_INDEX;
     }
 
-    @GetMapping("{id}/editar")
+    @GetMapping("/{id}/editar")
     public String edita(@PathVariable("id") Long id, Model model) {
         Contato contato = service.findById(id);
         model.addAttribute("contato", contato);
@@ -40,7 +40,7 @@ public class ContatoController {
         return URL_INDEX;
     }
 
-    @GetMapping("{id}/remover")
+    @GetMapping("/{id}/remover")
     public String remove(@PathVariable("id") Long id) {
         service.removeById(id);
         return REDIRECT_INDEX;
