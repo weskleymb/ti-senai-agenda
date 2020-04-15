@@ -67,12 +67,6 @@ public class Contato {
             foneFormatado = "(" + fone.substring(0, 2) + ") " + fone.substring(2, 7) + "-" + fone.substring(7, 11);
         }
         return foneFormatado;
-
-
-//        String CEP = "12345678";
-//        System.out.println(CEP.substring(0, 5) + "-" + CEP.substring(5));
-//        String TEL = "1234567890123";
-//        System.out.println("(" + TEL.substring(0, 2) + ")" + TEL.substring(2, 6) + "-" + TEL.substring(6, 10));
     }
 
     @Override
