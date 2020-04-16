@@ -22,7 +22,7 @@ public class AgendaApplication {
     @Bean
     @Profile("test")
     public ApplicationRunner devApplicationRunner(){
-        return arg->{
+        return arg-> {
             try {
                 Contato contato1 = new Contato();
                 contato1.setNome("Jose");
