@@ -21,7 +21,7 @@ public class AgendaApplication {
 
     @Bean
     @Profile("test")
-    public ApplicationRunner devApplicationRunner(){
+    public ApplicationRunner devApplicationRunner() {
         return arg-> {
             try {
                 Contato contato1 = new Contato();
