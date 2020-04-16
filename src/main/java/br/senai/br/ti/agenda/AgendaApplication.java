@@ -20,7 +20,7 @@ public class AgendaApplication {
     }
 
     @Bean
-    @Profile("dev")
+    @Profile("test")
     public ApplicationRunner devApplicationRunner(){
         return arg->{
             try {
